@@ -20,8 +20,7 @@
 // Create HLW8032 instance
 Hlw8032 hlw;
 // Create Serial2 instance for HLW8032 communication
-HardwareSerial SerialHLW(2); // Using ESP32's Serial2
-
+HardwareSerial SerialHLW(2); // Using ESP32's Serial2  (RX2=GPIO16, TX2=GPIO17)
 #define I2C_ADDR    0x27
 #define LCD_COLUMNS 16
 #define LCD_LINES   2

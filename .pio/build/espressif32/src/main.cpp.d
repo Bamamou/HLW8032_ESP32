@@ -136,5 +136,5 @@
  C:/Users/admin/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/admin/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src/Wire.h \
  C:/Users/admin/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
- .pio/libdeps/espressif32/LiquidCrystal_I2C/LiquidCrystal_I2C.h \
+ lib/LiquidCrystal_I2C-master/LiquidCrystal_I2C.h \
  C:/Users/admin/.platformio/packages/framework-arduinoespressif32/cores/esp32/Print.h
