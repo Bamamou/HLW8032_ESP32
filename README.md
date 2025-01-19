@@ -16,6 +16,6 @@ If you have an ESP32, a HLW8032 module and an I2C LCD, the below connection shou
 The below schematic denotes how the single module is designed with these three pins as low voltage connections
 1.  VCC
 2.  GND
-3.  TX
+3.  TX <br>
 And 4 other pins for input and output of the 220VAC side
 ![image](https://github.com/user-attachments/assets/edfc32a6-d68c-487d-b9fb-2e3638d38436)
