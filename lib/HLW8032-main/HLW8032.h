@@ -6,17 +6,15 @@
  * Includes methods for setting calibration factors, processing data, and 
  * handling power data callbacks.
  * 
- * @author Ahmed ARIF
+ * @author Nicolas
  * @email arif193@gmail.com
  * @version 1.0
  * @date Nov 18, 2023
- * Copyright (c) 2023 Ahmed ARIF
+ * Copyright (c) 2023 Nicolas
  * Licensed under LGPL-3.0, see <http://www.gnu.org/licenses/>.
  */
 
 #include <Arduino.h>
-
-typedef void (*PowerDataCallback)(int magic, float Vrms, float Irms, float P, float CF);
 
 
 class Hlw8032 {
@@ -33,19 +31,16 @@ public:
   void setCF(float data){
     CurrentRF=data;
   }
-
-  void setMagic(int magic){
-    this->magic = magic;
-  }
   // to get the current value
   float GetVoltage();
   //Method to get the analog value of the current
   float GetCurrent();
-
-  // Method to set the callback function
-  void onReceiveCallBack(PowerDataCallback callback);
+  // Method to get the power value
+  float GetPower();
   // Method to process received data
   void rxProcess(uint8_t data);
+  // Method to begin the serial communication
+  void begin(HardwareSerial& SerialData);
   float CurrentRF = 0.0022; 
 
   
@@ -63,6 +58,7 @@ private:
   }
   float VF; // Voltage Factor
   float CF; // Current Factor
+  HardwareSerial *SerialID;
 
   uint32_t VolR1 = 1880000;  //Voltage divider Upstream resistors 470K*4  1880K
   uint32_t VolR2 = 1000;     //Voltage divider downstream resistors  1K
@@ -71,9 +67,8 @@ private:
   uint32_t CurrentPar; 		//current parameter
   uint32_t PowerPar;     //power parameter
   uint32_t CurrentData; //current data
+  uint32_t PowerData;   //power data
 
-  PowerDataCallback _callback;
   void processFrame(uint8_t *frame);
-  int magic = 0;
 
 };
